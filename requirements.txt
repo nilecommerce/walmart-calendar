@@ -1,1 +1,6 @@
+click==6.7
+py==1.5.2
+pyodbc==4.0.21
+pytest==3.2.5
+python-dotenv==0.7.1
 SQLAlchemy==1.1.15
