@@ -1,21 +1,11 @@
-from wm_calendar.wm_week import lw, wm_week
-from ..fn.aggregate_table import sales, inventory, inventory_current
-from ..fn.calculate_table import wos, forecast_var
+from wm_calendar.wm_week import WalmartWeek
+from ..virtual_tables import sales, inventory, inventory_current, forecast, wos, forecast_var
 
 def query():
+    ww = WalmartWeek()
 
-    last_wk = lw()
-
-    inventory_current_t = 'inventory_current_t table query here'
-    inventory_t = 'inventory_t table query here'
-    lw_sales_t = sales(last_wk, last_wk)
-    lylw_sales_t = 'lylw_sales_t table query here'
-    ytd_sales_t = 'ytd_sales_t table query here'
-    lyytd_sales_t = 'lyytd_sales_t table query here'
-    wos_t = 'wos_t table query here'
-    frcst_var_t = 'frcst_var_t table query here'
-
-    sql='''
+    # Build SQL Query
+    sql = '''
 	SELECT
 		-- Item Information
 		i.[Prime Item Nbr]
@@ -137,13 +127,13 @@ def query():
 		LEFT JOIN ({fcv})    fcv	 ON i.[Prime Item Nbr] = fcv.[Prime Item Nbr]
 
     '''.format(
-        cinv = inventory_current_t,
-        lwinv = inventory_t,
-        lws = lw_sales_t,
-        lylws = lylw_sales_t,
-        ytds = ytd_sales_t,
-        lyytds = lyytd_sales_t,
-        wos = wos_t,
-        fcv = frcst_var_t,
+        cinv    =   inventory_current(),
+        lwinv   =   inventory(ww.lw()),
+        lws     =   sales(ww.lw()),
+        lylws   =   sales(ww.lylw()),
+        ytds    =   sales(ww.ytd()),
+        lyytds  =   sales(ww.lyytd()),
+        wos     =   wos(),
+        fcv     =   forecast_var(),
     )
     return sql

@@ -1,35 +1,37 @@
-from datetime import datetime, date, timedelta
+from datetime import date, timedelta
 import math
 
-from .helpers import get_fiscal_year_start_date
+from .helpers import get_wm_week, get_fiscal_year_start_date, get_weeks_between_dates_inclusive
 
-def wm_week(d=date.today()):
-    '''
-    Returns the WM Week for the date passed into the method.
-    If no date is passed in, the methods defaults to today.
-    '''
-    fiscal_year_start_date = get_fiscal_year_start_date(d)
+class WalmartWeek(object):
 
-    # Get the day of WM fiscal year
-    day_of_wm_year = (d - fiscal_year_start_date).days + 1
+    def __init__(self, d=date.today()):
+        self.date = d
+        self.wm_week = get_wm_week(d)
 
-    # Get week number by dividing day number by 7 and rounding up
-    wm_week_nbr = math.ceil(day_of_wm_year/7)
-    fiscal_year = fiscal_year_start_date.year
+    def lw(self):
+        d = self.date - timedelta(weeks=1)
+        return get_wm_week(d)
 
-    # Return WM Week as an int
-    return (fiscal_year * 100) + wm_week_nbr
+    def lylw(self):
+        d = self.date - timedelta(weeks=53)
+        return get_wm_week(d)
 
-def lw():
-    '''
-    Returns the last WM Week
-    '''
-    lw_date = date.today() - timedelta(days=7)
-    return wm_week(lw_date)
+    def l4w(self):
+        d1 = self.date - timedelta(weeks=4)
+        d2 = self.date - timedelta(weeks=1)
+        return get_weeks_between_dates_inclusive(d1, d2)
 
-def week_offset(wks=0):
-    '''
-    Returns a WM Week offset by the passed in number of weeks from the current week
-    '''
-    d = date.today() + timedelta(weeks=wks)
-    return wm_week(d)
+    def n4w(self):
+        d = self.date + timedelta(weeks=3)
+        return get_weeks_between_dates_inclusive(self.date, d)
+
+    def ytd(self):
+        d1 = get_fiscal_year_start_date(self.date)
+        d2 = self.date - timedelta(weeks=1)
+        return get_weeks_between_dates_inclusive(d1, d2)
+
+    def lyytd(self):
+        d1 = get_fiscal_year_start_date(self.date - timedelta(weeks=53))
+        d2 = self.date - timedelta(weeks=53)
+        return get_weeks_between_dates_inclusive(d1, d2)

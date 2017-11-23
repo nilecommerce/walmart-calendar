@@ -17,5 +17,4 @@ def connection(name=os.environ.get("DB_NAME")):
     ))
 
     engine = create_engine("mssql+pyodbc:///?odbc_connect=%s" % params)
-
     return engine.connect()
