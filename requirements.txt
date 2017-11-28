@@ -1,4 +1,8 @@
 click==6.7
+Flask==0.12.2
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
 numpy==1.13.3
 pandas==0.21.0
 py==1.5.2
@@ -7,5 +11,7 @@ pytest==3.2.5
 python-dateutil==2.6.1
 python-dotenv==0.7.1
 pytz==2017.3
+redis==2.10.6
 six==1.11.0
 SQLAlchemy==1.1.15
+Werkzeug==0.12.2
