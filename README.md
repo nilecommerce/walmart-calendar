@@ -4,14 +4,14 @@
 
 ### Getting Started
 
-*Note: This project uses pipenv, follow these[https://docs.pipenv.org/] directions to install it.
+*Note: This project uses pipenv, follow [these](https://docs.pipenv.org/) directions to install it.
 
 1. Setup virtualenv and install dependencies
 ```bash
 pipenv install
 ```
 
-2. Add .env patterned after the .env.example[/env.example] file in the root directory
+2. Add .env patterned after the [.env.example](/env.example) file in the root directory
 
 3. Activate virtualenv
 ```bash
