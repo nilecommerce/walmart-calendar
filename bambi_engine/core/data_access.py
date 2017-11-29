@@ -2,13 +2,11 @@ import os
 from urllib.parse import quote_plus
 import json
 
-from dotenv import load_dotenv, find_dotenv
 from sqlalchemy import create_engine
 from sqlalchemy.sql import text
 import redis
 import pandas as pd
 
-load_dotenv(find_dotenv())
 
 def db_conn(name=os.environ.get("DB_NAME")):
     params = quote_plus("DRIVER={driver};SERVER={server};DATABASE={db};UID={user};PWD={password}".format(
@@ -53,7 +51,7 @@ def load_data(query_id, query, db_name, expire_time=1440, force_refresh=False):
         # convert cached json back to dictionary
         data = json.loads(cached_data)
         df = pd.DataFrame.from_dict(data['dataframe'])
-        
+
         # redorder columns to match original data structure
         df = df[data['column_order']]
 

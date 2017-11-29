@@ -1,4 +1,4 @@
-from bambi_engine.wm_calendar.wm_week import WalmartWeek
+from ...wm_calendar.wm_week import WalmartWeek
 from ..utils import get_week_filter, combine_weeks
 
 def sales(weeks, rollup=''):

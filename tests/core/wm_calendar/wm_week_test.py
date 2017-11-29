@@ -1,6 +1,6 @@
 from datetime import date, timedelta
 
-from bambi_engine.wm_calendar.wm_week import WalmartWeek
+from bambi_engine.core.wm_calendar.wm_week import WalmartWeek
 
 ww = WalmartWeek(date(2017, 2, 13))
 
