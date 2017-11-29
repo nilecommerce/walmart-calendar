@@ -11,7 +11,7 @@
 pipenv install
 ```
 
-2. Add .env patterned after the [.env.example](/env.example) file in the root directory
+2. Add .env patterned after the ```.env.example``` file in the root directory
 
 3. Activate virtualenv
 ```bash
