@@ -1,4 +1,4 @@
-from bambi_engine.wm_calendar.wm_week import WalmartWeek
+from ....wm_calendar.wm_week import WalmartWeek
 from ..virtual_tables import sales, inventory, inventory_current, forecast, wos, forecast_var
 
 def query():

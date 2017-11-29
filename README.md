@@ -3,22 +3,19 @@
 # Bambi Engine
 
 ### Getting Started
-1. Add virtualenv
+
+*Note: This project uses pipenv, follow these[https://docs.pipenv.org/] directions to install it.
+
+1. Setup virtualenv and install dependencies
 ```bash
-virtualenv env
+pipenv install
 ```
 
-2. Add the following to the bottom of the virtualenv activate script
+2. Add .env patterned after the .env.example[/env.example] file in the root directory
+
+3. Activate virtualenv
 ```bash
-# using /env/bin/activate
-
-export FLASK_APP=app.py
-export FLASK_DEBUG=1
+pipenv shell
 ```
-
-3. Add .env patterned after the .env.example file in the root directory
-
-4. Install dependencies 
-```bash
-pip3 install -r requirement.txt
-```
+  * If you change anything during in the .env file while developing you will need to
+    restart the virtualenv as the .env variables are loaded when the virtual env is activated.
