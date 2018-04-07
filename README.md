@@ -1,21 +1,19 @@
-<img src="https://s3-us-west-2.amazonaws.com/bambi-data/bambi-engine.png" width="250" align="right">
+# walmart-calendar
+**Micro library for performing data calculations with Walmart's 4-5-4 retail calendar.**
 
-# Bambi Engine
-
-### Getting Started
-
-*Note: This project uses pipenv, follow [these](https://docs.pipenv.org/) directions to install it.
-
-1. Setup virtualenv and install dependencies
+## Getting Started
+- Install
 ```bash
-pipenv install
+pip3 install walmart-calendar
 ```
 
-2. Add .env patterned after the ```.env.example``` file in the root directory
-
-3. Activate virtualenv
+## Contributing
+#### Testing
+- Make sure you have pytest installed
 ```bash
-pipenv shell
+pip3 install pytest
 ```
-  * If you change anything during in the .env file while developing you will need to
-    restart the virtualenv as the .env variables are loaded when the virtual env is activated.
+- Run tests
+```bash
+python3 -m pytest
+```

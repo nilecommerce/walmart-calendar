@@ -1,6 +1,6 @@
 from datetime import datetime, date, timedelta
 
-import bambi_engine.core.wm_calendar.helpers as h
+import calendar.helpers as h
 
 def get_following_friday_test():
     sat = date(2017, 5, 20)
