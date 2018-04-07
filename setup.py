@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='walmart-calendar',
-    version='0.1.0al',
+    version='1.1.0',
     description='Micro library for performing data calculations with Walmart\'s 4-5-4 retail calendar',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -22,13 +22,12 @@ setup(
         'Intended Audience :: Developers',
         'Topic :: Software Development :: Build Tools',
         'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
     ],
     keywords='data-analytics calendar bi',
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     extras_require={
     'test': ['pytest'],
     },
-    python_requires='>=3',
 )
