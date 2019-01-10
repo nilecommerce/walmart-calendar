@@ -1,10 +1,10 @@
-# walmart-calendar
+# walmart_calendar
 **Micro library for performing data calculations with Walmart's 4-5-4 retail calendar.**
 
 ## Getting Started
 - Install
 ```bash
-pip3 install walmart-calendar
+pip3 install walmart_calendar
 ```
 
 ## Contributing

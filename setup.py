@@ -8,7 +8,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='walmart-calendar',
+    name='walmart_calendar',
     version='1.1.0',
     description='Micro library for performing data calculations with Walmart\'s 4-5-4 retail calendar',
     long_description=long_description,
